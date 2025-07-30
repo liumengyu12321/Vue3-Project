@@ -4,4 +4,4 @@
 
 效果图：
 
-![效果图](./src/assets/images/view.png)
+![效果图](images/view.png)![效果图](./src/assets/images/view2.png)
