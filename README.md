@@ -4,4 +4,4 @@
 
 效果图：
 
-![效果图](https://github.com/liumengyu12321/Vue3-Project/blob/master/src/assets/images/view.png)
+![效果图](./src/assets/images/view.png)

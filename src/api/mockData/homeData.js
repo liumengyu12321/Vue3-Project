@@ -22,13 +22,13 @@ export default {
             totalBuy: 65000,
           },
           {
-            name: "小米",
+            name: "鼠标",
             todayBuy: 1200,
             monthBuy: 6500,
             totalBuy: 45000,
           },
           {
-            name: "鼠标",
+            name: "硬盘",
             todayBuy: 300,
             monthBuy: 2000,
             totalBuy: 34000,
