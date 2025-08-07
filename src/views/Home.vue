@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive } from 'vue'
-import axios from 'axios'
+import { getTableData, getCountData, getChartData } from '@/api/requests.js'
 import * as echarts from 'echarts'
 
 const getImageUrl = (user)=>{
@@ -17,45 +17,27 @@ const tableLabel = ref({
 const countData = ref([])
 const chartData = ref([])
 
-axios({
-  url:'/api/home/getTableData',
-  method:'get'
-}).then(res=>{
-  console.log(res.data)
-  if(res.data.code === 200){
-    tableData.value = res.data.tableData
-  }
+getTableData().then(res=>{
+  tableData.value = res.data.tableData
 })
 
-axios({
-  url:'/api/home/getCountData',
-  method:'get'
-}).then(res=>{
-  console.log(res.data)
-  if(res.data.code === 200){
-    countData.value = res.data.countData
-  }
+getCountData().then(res=>{
+  countData.value = res.data.countData
 })
 
-axios({
-  url:'/api/home/getChartData',
-  method:'get'
-}).then(res=>{
-  console.log(res.data)
-  if(res.data.code === 200){
-    chartData.value = res.data  
-    xOptions.xAxis.data = chartData.value.orderData.date
-    console.log(chartData.value.orderData.date)
-    xOptions.series = Object.keys(chartData.value.orderData.data[0]).map(val=>{
-      return{
-        name:val,
-        data:chartData.value.orderData.data.map(item=>item[val]),
-        type:'line'
-      }
-    })
-    const xChart = echarts.init(document.getElementById('xChart'));
-    xChart.setOption(xOptions)
-  }
+getChartData().then(res=>{
+  chartData.value = res.data
+  xOptions.xAxis.data = chartData.value.orderData.date
+  console.log(chartData.value.orderData.date)
+  xOptions.series = Object.keys(chartData.value.orderData.data[0]).map(val=>{
+    return{
+      name:val,
+      data:chartData.value.orderData.data.map(item=>item[val]),
+      type:'line'
+    }
+  })
+  const xChart = echarts.init(document.getElementById('xChart'));
+  xChart.setOption(xOptions)
 })
 
 const xOptions = reactive({
