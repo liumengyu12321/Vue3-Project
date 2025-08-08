@@ -17,9 +17,29 @@ const routes = [
         path: '/user',
         name: 'user',
         component: () => import('@/views/User.vue'),
+      },
+      {
+        path: '/mall',
+        name: 'mall',
+        // component: () => import('@/views/User.vue'),
+      },
+      {
+        path: '/other',
+        name: 'other',
+        // component: () => import('@/views/User.vue'),
       }
     ],
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/Login.vue'),
+  },
+  {
+      path: '/404',
+      name: '404',
+      component: () => import('@/views/404.vue')
+  }
 ]
 
 const router = createRouter({

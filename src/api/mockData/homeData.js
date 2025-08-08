@@ -1,5 +1,5 @@
 export default {
-  getTableData: () => {
+  getTableData: () => {    
     return {
       code: 200,
       tableData: [

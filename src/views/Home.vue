@@ -28,7 +28,6 @@ getCountData().then(res=>{
 getChartData().then(res=>{
   chartData.value = res.data
   xOptions.xAxis.data = chartData.value.orderData.date
-  console.log(chartData.value.orderData.date)
   xOptions.series = Object.keys(chartData.value.orderData.data[0]).map(val=>{
     return{
       name:val,

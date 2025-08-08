@@ -5,7 +5,9 @@ export const useAllDataStore = defineStore('allData', () => {
 
     const store = ref(
         {
-            isCollapse : true
+            isCollapse : false,
+            menuList:[],
+            token:''
         }
     )
     return store.value
